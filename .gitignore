@@ -62,3 +62,7 @@ pnpm-lock.yaml
 # Optional: misc
 *.swp
 *.swo
+
+# Environment
+.env
+.env.local

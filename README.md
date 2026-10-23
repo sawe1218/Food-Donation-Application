@@ -1,93 +1,65 @@
-# Food Donation Application
+# FoodShare – Food Donation PWA
 
-A full-stack web application designed to connect food donors with recipients, reducing food waste and helping communities in need.
+A progressive web app that connects food donors (restaurants, caterers, households) with NGOs and volunteers, so surplus food reaches people instead of landfill. Built as my MSc Computer Science dissertation project at Middlesex University London.
 
-## Overview
+## Features
 
-This application streamlines the process of donating surplus food from restaurants, caterers, and individuals to NGOs and people in need. It features a user-friendly interface for both donors and recipients, real-time tracking, and a secure backend infrastructure.
+- **Donor, receiver, volunteer and admin roles** with protected routes
+- **Donation listings and claims** – post surplus food, browse nearby donations, track claims
+- **Location-based matching** with interactive maps (Leaflet + OpenCage geocoding)
+- **Volunteer delivery tracking** with ride credits and a donation timeline
+- **NGO partnership hub** for organisations to coordinate collections
+- **In-app chat** between donors, receivers and volunteers
+- **Impact tracking and badges** to reward regular donors
+- **Push and email notifications** (Firebase Cloud Messaging, EmailJS)
+- **Admin dashboard** for managing users and donations
+- **Social sharing** of donations and impact
 
-## 🚀 Features
+## Tech Stack
 
-- **User Authentication** - Secure registration and login for donors and recipients
-- **Food Donation Listings** - Easy-to-use interface for posting available food
-- **Real-time Notifications** - Instant updates on donation status
-- **Location-based Matching** - Find nearby donations or recipients
-- **User Ratings & Reviews** - Build trust within the community
-- **Admin Dashboard** - Manage users, donations, and system health
+| Area | Tools |
+|------|-------|
+| Frontend | React 18, React Router 6, Material UI 7 |
+| Backend | Firebase Authentication, Cloud Firestore, Firebase Cloud Messaging |
+| Maps | Leaflet, React Leaflet, OpenCage |
+| Notifications | FCM, EmailJS, React Toastify |
+| Testing | Jest, React Testing Library |
 
-## 🛠️ Tech Stack
+## Getting Started
 
-**Frontend:**
-- JavaScript (React)
-- HTML5 & CSS3
-- Responsive Design
-
-**Backend:**
-- Node.js & Express.js
-- MongoDB
-- RESTful API Architecture
-
-**Infrastructure:**
-- AWS (Deployment & Hosting)
-- Cloud-based database management
-
-## 📋 Prerequisites
-
-- Node.js (v14+)
-- MongoDB
-- npm or yarn
-
-## 🔧 Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/sawe1218/Food-Donation-Application.git
-   cd Food-Donation-Application
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables:**
-   ```bash
-   cp .env.example .env
-   ```
-   Update `.env` with your configuration (database URL, API keys, etc.)
-
-4. **Start the application:**
-   ```bash
-   npm start
-   ```
-
-The application will be available at `http://localhost:3000`
-
-## 📁 Project Structure
-
-```
-Food-Donation-Application/
-├── server/              # Backend (Node.js/Express)
-├── client/              # Frontend (React)
-├── config/              # Configuration files
-└── README.md
+```bash
+git clone https://github.com/sawe1218/Food-Donation-Application.git
+cd Food-Donation-Application
+npm install
+cp .env.example .env   # add your Firebase and EmailJS keys
+npm start
 ```
 
-## 🤝 Contributing
+The app runs at `http://localhost:3000`.
 
-Contributions are welcome! Feel free to:
-- Report bugs
-- Suggest features
-- Submit pull requests
+## Testing
 
-## 📄 License
+```bash
+npm test                 # watch mode
+npm run test:ci-unix     # single run with coverage
+```
 
-This project is open source and available under the MIT License.
+Tests cover authentication (login, registration, auth context), an end-to-end auth flow and the dashboard.
 
-## 📞 Support
+## Project Structure
 
-For questions or issues, please create an issue in the repository or reach out via GitHub.
+```
+src/
+├── components/   # auth, chat, delivery, maps, ngo, impact, sharing, timeline
+├── contexts/     # auth context
+├── pages/        # dashboards, donations, claims, profile, achievements
+├── services/     # Firebase configuration
+├── hooks/ utils/ styles/
+functions/        # Firebase Cloud Functions scaffold
+docs/             # implementation notes, Firestore rules, admin guide
+wireframes/       # original UI wireframes
+```
 
----
+## Licence
 
-**Built with ❤️ to make a difference in food security and community support**
+MIT
